@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Little Surprise ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffd6e7, #fff8fb);
+            overflow-y: auto;
+        }
+
+        /* Envelope */
+        #envelope {
+            width: 220px;
+            height: 140px;
+            background: #f8a5c2;
+            position: relative;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+        }
+
+        #envelope::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f48fb1;
+            clip-path: polygon(0 0, 100% 0, 50% 60%);
+        }
+
+        #envelope span {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            bottom: 18px;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        /* Letter Page */
+        #letter {
+            display: none;
+            width: 92%;
+            max-width: 420px;
+            background: linear-gradient(to bottom, #fff, #ffeef5);
+            padding: 22px;
+            border-radius: 18px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .2);
+            text-align: center;
+        }
+
+        h2 {
+            color: #e91e63;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 25px;
+            margin: 10px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #yes {
+            background: #ff4d88;
+            color: white;
+        }
+
+        #no {
+            background: #dddddd;
+        }
+
+        #result {
+            margin-top: 20px;
+            color: #e91e63;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Envelope -->
+    <div id="envelope" onclick="openLetter()">
+        <span>💌 Tap to Open</span>
+    </div>
+
+    <!-- Letter -->
+    <div id="letter">
+        <h2>For You ❤️</h2>
+
+        <p>
+            It's hard to believe that we met just this month, yet you've already become someone so special to me.
+
+            Sometimes I wonder if it was all part of God's plan—bringing two strangers together at the right time.
+            Because in such a short while, you've given me so many reasons to smile.
+
+            Every conversation with you makes my day a little brighter, and every moment we spend together becomes a
+            memory I want to keep. I never expected someone I met so recently could mean this much to me, but here we
+            are.
+
+            So, I made this little surprise just for you. I hope it brings a smile to your face, because your smile has
+            become one of my favorite things.
+
+            Maybe it was God's plan... and I'm really grateful that our paths crossed. ❤️
+
+        </p>
+
+        <h3>Tumr ki pochondo hoyeche Sunai ? 🥹</h3>
+
+        <button id="yes" onclick="yes()">Yes ❤️</button>
+        <button id="no" onclick="no()">No 🙈</button>
+
+        <p id="result"></p>
+    </div>
+    <audio id="bgMusic" loop>
+        <source src="Inaam.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function openLetter() {
+            document.getElementById("envelope").style.display = "none";
+            document.getElementById("letter").style.display = "block";
+
+            const music = document.getElementById("bgMusic");
+            music.volume = 0.4;
+
+            music.play().catch(error => {
+                console.log("Audio couldn't play:", error);
+            });
+        }
+
+        function yes() {
+            document.getElementById("result").innerHTML =
+                "Aww... Thank you! ❤️ 😘";
+        }
+
+        function no() {
+            document.getElementById("result").innerHTML =
+                "That's okay 😊🔪 Thanks for being honest.";
+        }
+    </script>
+
+</body>
+
+</html>
